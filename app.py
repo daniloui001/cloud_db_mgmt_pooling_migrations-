@@ -40,7 +40,7 @@ class MedicalRecord(Base):
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:
 
-DATABASE_URL = "mysql+mysqlconnector://danissi:V1nceTa1l@danissi504.mysql.database.azure.com"
+DATABASE_URL = 
 engine = create_engine(DATABASE_URL)
 
 ## Test connection
@@ -54,3 +54,14 @@ inspector.get_table_names()
 Base.metadata.create_all(engine)
 
 ### Running migrations 
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
