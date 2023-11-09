@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-databaseURL = os.getenv("AZUREDB_URL")
+databaseURL = os.getenv("GCPDB_URL")
 
 Base = declarative_base()
 
@@ -29,9 +29,8 @@ class PatientsBloodPressure(Base):
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:
 
-
-engine = create_engine("mysql+pymysql://dalouie:azure-for-students@clouddbmanage.mysql.database.azure.com",
-                         connect_args={' ssl': {'ssl-mode': 'preferred'}},)
+DATABASE_URL = "mysql+mysqlconnector://clouddbmanage:Sotheby1@35.193.21.48/dani-cloud-504"
+engine = create_engine(DATABASE_URL)
 
 ## Test connection
 
